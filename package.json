@@ -6,6 +6,7 @@
         "amqp-ts": "^1.8.0",
         "cassandra-driver": "^4.4.0",
         "handy-redis": "^1.8.0",
+        "mongoose": "^5.9.7",
         "nodeplotlib": "0.6.5",
         "prettier": "1.19.1",
         "redis": "^3.0.2",
