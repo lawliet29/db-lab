@@ -1,1 +1,3 @@
 node_modules/
+/db-lab.iml
+/.idea/*
