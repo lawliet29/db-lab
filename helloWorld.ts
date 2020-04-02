@@ -30,7 +30,7 @@ console.log('Hello world!')
 // Как только будете готовы продолжить знакомство со средой и языком, удалите или
 // закомментируйте эту строчку.
 
-/*>>*/ process.exit(0)
+/*>>*/ //process.exit(0)
 
 // JavaScript - язык с динамической типизацией. Это означает, что типы данных
 // могут быть изменены в процессе выполнения, и их нельзя явно указать. С одной стороны,
@@ -132,9 +132,9 @@ assert.equal(void 'this value does not matter', undefined)
 // при попытке что-то сделать с переменной, имеющей тип 'undefined' (например, вызвать
 // её как функцию или обратиться к её свойству) будет сгенерирована ошибка:
 
-/*>>*/ let someUndefinedValue
-/*>>*/ someUndefinedValue.foo // приводит к ошибке "Cannot read property 'foo' of undefined"
-/*>>*/ someUndefinedValue() // приводит к ошибке "someUndefinedValue is not a function"
+/*>>*/ //let someUndefinedValue
+/*>>*/ //someUndefinedValue.foo // приводит к ошибке "Cannot read property 'foo' of undefined"
+/*>>*/ //someUndefinedValue() // приводит к ошибке "someUndefinedValue is not a function"
 
 //==================================3. number======================================
 // 'number': числа в JavaScript/node не разделяются на целые числа и числа с
@@ -165,7 +165,7 @@ assert.notEqual(number1, number2)
 
 // Числа можно также объявлять в экспоненциальной нотации: <A>e<B> = A * (10 ** B)
 
-/*>>*/ assert.equal(2e6, undefined, 'Замените undefined на значение :)')
+/*>>*/ assert.equal(2e6, 2 * (10 ** 6), 'Замените undefined на значение :)')
 
 // Необходимо также  внимательно следить за возможными ошибками округления.
 // наиболее типичная ошибка округления: 0.1 + 0.2 = 0.30000000000000004
@@ -216,12 +216,12 @@ assert.equal(zero == '0', true)
 
 /*>>*/ assert.equal(
   zero === false,
-  undefined,
+  false,
   'Замените undefined на значение :)'
 )
 /*>>*/ assert.equal(
   zero === '0',
-  undefined,
+  false,
   'Замените undefined на значение :)'
 )
 
@@ -248,7 +248,7 @@ It includes value "${thisIsAny}" as part of it`
 
 const theAnswerToEverything = 42
 
-/*>>*/ const myString = ``
+/*>>*/ const myString = `The answer to everything is ${theAnswerToEverything}!`
 assert.equal(
   myString,
   'The answer to everything is 42!',
@@ -430,7 +430,7 @@ assert.equal(three, array2[2])
 assert.equal(array1.length, 0)
 /*>>*/ assert.equal(
   array2.length,
-  undefined,
+  3,
   'Замените undefined на значение :)'
 )
 
@@ -665,7 +665,7 @@ const fooInstance = new Foo('bar')
 assert.equal(typeof fooInstance, 'object')
 
 // Как уже упоминалось, для проверки принадлежности классу можно использовать оператор instanceof:
-/*>>*/ assert(fooInstance instanceof Map, 'Замените Map на корректный тип :)')
+/*>>*/ assert(fooInstance instanceof Foo, 'Замените Map на корректный тип :)')
 
 // Наследование реализуется при помощи ключевого слова extends.
 // Если класс-наследник не включает в себя конструктор, вместо него автоматически используется
@@ -701,9 +701,9 @@ const set = new Set([1, 2, 3, 3, 4, 4, 4, 1, 1, 2, 2])
 // свойство size - количество элементов множества
 assert.equal(set.size, 4)
 set.add(2)
-/*>>*/ assert.equal(set.size, undefined, 'Замените undefined на значение :)')
+/*>>*/ assert.equal(set.size, 4, 'Замените undefined на значение :)')
 set.add(5)
-/*>>*/ assert.equal(set.size, undefined, 'Замените undefined на значение :)')
+/*>>*/ assert.equal(set.size, 5, 'Замените undefined на значение :)')
 
 // Map - множество пар "ключ-значение" (хэш-таблица)
 const map = new Map<any, any>([
@@ -744,7 +744,7 @@ for (const symbol of 'string') {
 }
 /*>>*/ assert.equal(
   reversedSymbols.join(''),
-  undefined,
+  'gnirts',
   'Замените undefined на значение :)'
 )
 
@@ -825,12 +825,12 @@ function processUserResult(result: GetUsersResult) {
 assert.equal(processUserResult({type: 'notFound'}), undefined)
 /*>>*/ assert.equal(
   processUserResult({type: 'error', errorDescription: 'Ошибка!'}),
-  undefined,
+  'Ошибка!',
   'Замените undefined на значение :)'
 )
 /*>>*/ assert.equal(
   processUserResult({type: 'found', user: {id: 3, name: 'Test User'}}),
-  undefined,
+    `Found user id 3 Test User`,
   'Замените undefined на значение :)'
 )
 
